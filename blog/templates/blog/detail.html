@@ -1,7 +1,6 @@
 
 <!doctype html>
 <html lang="en">
-
   <head>
     {% load staticfiles %}
     <meta charset="utf-8">
@@ -9,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Aditya Sonawane</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -17,7 +16,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Favicons -->
-}
 <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -58,7 +56,7 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="http://twitter.com">Twitter </a>
           <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
           
         </div>
       </div>
@@ -67,42 +65,30 @@
   </header>
 
 <main role="main">
-
   <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Hi, I'm Adi</h1>
-      <p class="lead text-muted">Hey my name is Aditya Sonawane and I love to make django websites. It's the thrill of handling the requests that the people want!!</p>
-      <p>
-        <a href="mailto:adits8p@gmail.com" class="btn btn-primary my-2">Mail Me</a>
+    
+	<div class="container">	
+		
+
+		<br/>
+       
+        <h2 class="text-center pt-3">{{ blog.title }}</h2>
         
-      </p>
-      <img src="{% static 'aditya.jpg' %}" height="250" />
-    </div>
+        <p class="text-center">{{ blog.pub_date }}</p>
+        
+        <img class="img-fluid" src="{{ blog.image.url }}" height=200 width=200 />
+        <br/>
+        <br/>
+        
+        <p>{{ blog.body }}</p>
+        <br/>
+        
+        
+
+	</div>
+    
+  
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-        
-      </div>
-    </div>
-  </div>
-
 </main>
 
 <footer class="text-muted">
